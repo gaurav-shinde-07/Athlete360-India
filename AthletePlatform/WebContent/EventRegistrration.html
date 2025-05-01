@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reuse previous styles with same variables */
+        :root {
+            --primary: #0056b3;
+            --secondary: #003366;
+            --accent: #ff6b00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .registration-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        .registration-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .registration-header h1 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        select.input-field {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-card">
+        <div class="registration-header">
+            <h1>Event Registration</h1>
+            <p>Create new sporting event</p>
+        </div>
+
+        <form>
+            <div class="input-group">
+                <label class="input-label">Event Name</label>
+                <input type="text" class="input-field" placeholder="Regional Championship" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Event Type</label>
+                <select class="input-field" required>
+                    <option value="">Select Event Type</option>
+                    <option>Competition</option>
+                    <option>Practice Session</option>
+                    <option>Workshop</option>
+                    <option>Exhibition</option>
+                </select>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label class="input-label">Start Date & Time</label>
+                    <input type="datetime-local" class="input-field" required>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">End Date & Time</label>
+                    <input type="datetime-local" class="input-field" required>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label class="input-label">Organizer Email</label>
+                    <input type="email" class="input-field" placeholder="organizer@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Organizer Contact</label>
+                    <input type="tel" class="input-field" placeholder="+1 555 123 4567" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Event Password</label>
+                <input type="password" class="input-field" placeholder="••••••••" 
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                       title="Must contain at least 8 characters, including uppercase and lowercase letters, and numbers" 
+                       required>
+            </div>
+
+            <button type="submit" class="btn-primary">Create Event</button>
+        </form>
+    </div>
+</body>
+</html>
